@@ -26,7 +26,7 @@ install() {
   ./configure --without-ssl --prefix=$ASDF_INSTALL_PATH
   make -s install || exit 1
 
-  git clone https://github.com/pgroonga/pgroonga
+  git clone --recursive https://github.com/pgroonga/pgroonga
   cd pgroonga
   PKG_CONFIG_PATH=$ASDF_INSTALL_PATH/lib/pkgconfig make -s install || exit 1
 }
