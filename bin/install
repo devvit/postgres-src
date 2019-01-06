@@ -22,7 +22,7 @@ install() {
 
   git clone https://github.com/groonga/groonga
   cd groonga
-  ./autogen
+  ./autogen.sh
   ./configure --without-ssl --prefix=$ASDF_INSTALL_PATH
   make -s install || exit 1
 
