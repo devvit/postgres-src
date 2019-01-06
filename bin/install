@@ -20,7 +20,7 @@ install() {
   cd pghashlib
   make install
 
-  git clone https://github.com/groonga/groonga
+  git clone --recursive https://github.com/groonga/groonga
   cd groonga
   ./autogen.sh
   ./configure --without-ssl --prefix=$ASDF_INSTALL_PATH
