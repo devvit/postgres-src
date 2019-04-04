@@ -14,11 +14,11 @@ install() {
   ./configure --with-uuid=e2fs --prefix=$ASDF_INSTALL_PATH
   make -s install-world || exit 1
 
-  export PATH=$PATH:$ASDF_INSTALL_PATH/bin
+  # export PATH=$PATH:$ASDF_INSTALL_PATH/bin
 
-  git clone https://github.com/markokr/pghashlib
-  cd pghashlib
-  make install || exit 1
+  # git clone https://github.com/markokr/pghashlib
+  # cd pghashlib
+  # make install || exit 1
 }
 
 install $ASDF_INSTALL_TYPE $ASDF_INSTALL_VERSION $ASDF_INSTALL_PATH
