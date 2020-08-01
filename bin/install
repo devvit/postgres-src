@@ -11,10 +11,10 @@ install() {
   tar -xzf postgres*.gz
   rm -rf postgres*.gz
   cd postgres*
-  ./configure --with-uuid=e2fs --prefix=$ASDF_INSTALL_PATH
+  ./configure --with-uuid=e2fs --prefix=$install_dir
   make -s install-world || exit 1
 
-  # export PATH=$PATH:$ASDF_INSTALL_PATH/bin
+  # export PATH=$PATH:$install_dir/bin
 
   # git clone https://github.com/markokr/pghashlib
   # cd pghashlib
