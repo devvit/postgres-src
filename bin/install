@@ -7,7 +7,7 @@ install() {
   build_dir=$(mktemp -d)
   cd $build_dir
 
-  curl -fSL -JO https://github.com/postgres/postgres/archive/$version.tar.gz
+  curl -fSL -JO https://ftp.postgresql.org/pub/source/v$version/postgresql-$version.tar.gz
   tar -xzf postgres*.gz
   rm -rf postgres*.gz
   cd postgres*
