@@ -13,15 +13,10 @@ install() {
   cd postgres*
   
   platform=$(uname)
-  if [ "$platform" == 'FreeBSD' ]; then
-    # --with-uuid=bsd
-    CFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" ./configure --prefix=$install_dir --without-readline --without-zlib
-    gmake -s install-world || exit 1
-  else
-    # --with-uuid=e2fs
-    ./configure --prefix=$install_dir --without-readline --without-zlib
-    make -s install-world || exit 1
-  fi
+  # freebsd: --with-uuid=bsd
+  # linux/macos: --with-uuid=e2fs
+  CFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" ./configure --prefix=$install_dir --without-readline --without-zlib
+  gmake -s install-world || exit 1
 
   # export PATH=$PATH:$install_dir/bin
 
