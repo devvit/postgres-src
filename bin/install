@@ -14,11 +14,11 @@ install() {
   
   platform=$(uname)
   if [ "$platform" == 'FreeBSD' ]; then
-    # CFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" ./configure --with-uuid=bsd --prefix=$install_dir
+    # --with-uuid=bsd
     CFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" ./configure --prefix=$install_dir --without-readline --without-zlib
     gmake -s install-world || exit 1
   else
-    # ./configure --with-uuid=e2fs --prefix=$install_dir
+    # --with-uuid=e2fs
     ./configure --prefix=$install_dir --without-readline --without-zlib
     make -s install-world || exit 1
   fi
