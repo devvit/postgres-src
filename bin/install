@@ -16,7 +16,11 @@ install() {
   # freebsd: --with-uuid=bsd
   # linux/macos: --with-uuid=e2fs
   CFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" ./configure --prefix=$install_dir --without-readline --without-zlib
-  gmake -s install-world || exit 1
+  if [ "$platform" == 'FreeBSD' ]; then
+    gmake -s install-world || exit 1
+  else
+    make -s install-world || exit 1
+  fi
 
   # export PATH=$PATH:$install_dir/bin
 
