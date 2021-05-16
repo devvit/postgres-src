@@ -14,6 +14,7 @@ install() {
   
   platform=$(uname)
   # --without-readline --without-zlib
+  # PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
   if [ "$platform" == 'FreeBSD' ]; then
     CFLAGS="-I/usr/local/include" LDFLAGS="-L/usr/local/lib" ./configure --prefix=$install_dir --with-uuid=bsd
     gmake -s install-world || exit 1
